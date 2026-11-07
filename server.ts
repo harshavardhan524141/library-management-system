@@ -35,10 +35,10 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    app.use(express.static(path.resolve(__dirname, 'dist')));
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
-    });
+    app.use(express.static(__dirname));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'index.html'));
+});
   }
 
   app.listen(PORT, '0.0.0.0', () => {
