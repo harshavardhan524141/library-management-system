@@ -12,7 +12,7 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-const dbPath = process.env.DB_PATH || path.join(dataDir, 'library.db');
+const dbPath = path.join(dataDir, 'library.db');
 export const db = new Database(dbPath);
 
 // Enable foreign keys and WAL mode for better concurrency
